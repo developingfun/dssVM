@@ -1,0 +1,84 @@
+extends layout
+
+block content
+
+  #banner.page-header
+     .row
+        .col-lg-6
+            h1 #{volunteer.name}
+               small &nbsp; details
+               small &nbsp;
+               span.glyphicon.glyphicon-thumbs-up
+               span.glyphicon.glyphicon-user
+               span.badge.pull-right.badge-default yesterday
+     .row
+         .col-xs-12.col-sm-8
+             p.name=volunteer.name
+             p.address=volunteer.address
+             p.phone=volunteer.phone
+             p.emailId=volunteer.emailId
+             p.occupation=volunteer.occupationStatus
+             p.institute=volunteer.institute
+             p
+               | Skills
+               br
+               each skill in volunteer.skills
+                    span.label.label-warning=skill
+                    | &nbsp;
+             p
+                | Prefered Days
+                br
+                each day in volunteer.prefDays
+                   span.label.label-warning=day
+                      | &nbsp;
+                br
+                | Prefered Area
+                br
+                each area in volunteer.prefArea
+                   span.label.label-warning=area
+                      | &nbsp;
+                br
+                | Prefered Activities
+                br
+                each activity in volunteer.prefActivity
+                   span.label.label-warning=activity
+                      | &nbsp;
+                      
+             p
+                br
+                | Feedback Available
+                br
+                if volunteer.feedbacks.length 
+                each feedback in volunteer.feedbacks
+                    span.label.label-warning=feedback.feedback
+                      | &nbsp;
+                      br
+                else
+                    | No Feedbacks not available
+                      
+              p
+                br
+                | Remarks Made
+                br
+                if volunteer.remarks.length
+                each remark in volunteer.remarks
+                    span.label.label-warning=remark.remark + "by "+ remark.dssStaff + " on date "+remark.date
+                      | &nbsp; 
+                      br
+                else
+                    | No remarks available
+                      
+             p
+                br
+                | Activities participated
+                br
+                if volunteer.activities.length
+                each activity in volunteer.activities
+                     span.label.label-warning=activity.site
+                         | &nbsp;
+                         br
+                else
+                    | No activities registered
+         .col-xs-12.col-sm-4
+            p.Get connected with volunteers
+  

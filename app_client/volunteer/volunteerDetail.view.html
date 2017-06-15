@@ -1,0 +1,22 @@
+	<navigation _id={{vm.volunteerId}}></navigation>
+	<page-header></page-header>
+	<div class="container-fluid">
+	    <div class="row">
+	     	<div class="col-xs-12 col-sm-8">
+		         <div ng-if="vm.message" class="error">{{vm.message}}</div>
+	         	 <div class="row">
+         	 		<div class="panel panel-info">
+         	 			<div class="panel-heading">
+         	 				<h3 class="panel-title">Personal Information</h3>
+         	 			</div>
+         	 			<div class="panel-body">
+      		      			<p class="name">{{vm.data.volunteer.name}}</p>
+				  			<p class="address">{{vm.data.volunteer.address}}</p>
+				  			<p class="contact">{{vm.data.volunteer.phone}}<span class="pull-right">{{vm.data.volunteer.emailId}}</span></p>
+				        </div>
+				     </div>
+	            </div>
+	        </div>
+	  	</div>
+	</div>
+	<footer-dss></footer-dss>

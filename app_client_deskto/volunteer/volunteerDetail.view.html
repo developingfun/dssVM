@@ -1,0 +1,92 @@
+	<navigation></navigation>
+	<div class="container">
+	<page-header info="vm.pageHeader"></page-header>
+     <div class="row">
+     	<div class="col-xs-12 col-sm-8">
+	         <div class="error">{{vm.message}}</div>
+         	 <div class="row">
+         	 		<div class="panel panel-info">
+         	 			<div class="panel-heading">
+         	 				<h3 class="panel-title">Persona Information</h3>
+         	 			</div>
+         	 			<div class="panel-body">
+      		      			<p class="name">{{vm.data.volunteer.name}}</p>
+				  			<p class="address">{{vm.data.volunteer.address}}</p>
+				  			<p class="contact">{{vm.data.volunteer.phone}}<span class="pull-right">{{vm.data.volunteer.emailId}}</span></p>
+				            <p class="occupation">{{vm.data.volunteer.occupationStatus}}</p>
+				            <p class="institute">{{vm.data.volunteer.institute}}</p>
+				        </div>
+				     </div>
+				     <div class="panel panel-info">
+							<div class="panel-heading">
+								<h3 class="panel-title">Skills ..</h3>
+							</div>
+							<div class="panel-body">
+								<span class="label label-warning" ng-repeat="skill in vm.data.volunteer.skills">{{skill}}</span>
+							</div>
+				     </div>
+				     <div class="panel panel-info">
+							<div class="panel-heading">
+								<h3 class="panel-title">Preferences ..</h3>
+							</div>
+							<div class="panel-body">
+								<p>
+									Days
+									<span class="label label-warning" ng-repeat="day in vm.data.volunteer.prefDays">{{day}}</span>
+								</p>
+								<p>
+									Areas
+									<span class="label label-warning" ng-repeat="area in vm.data.volunteer.prefArea">{{area}}</span>
+								</p>
+								<p>
+									Activities
+									<span class="label label-warning" ng-repeat="activity in vm.data.volunteer.prefActivity">{{activity}}</span>
+								</p>
+							</div>
+					 </div>
+					 <div class="panel panel-info">
+							<div class="panel-heading">
+								<h3 class="panel-title">Feedback Available</h3>
+							</div>
+							<div class="panel-body">
+								<div ng-show="!(vm.data.volunteer.feedbacks.length)">No feedbacks</div>
+								<p>
+									<span class="label label-warning" ng-repeat="feedback in vm.data.volunteer.feedbacks">{{feedback.feedback}}</span>
+								</p>
+
+							</div>
+					 </div>
+					 <div class="panel panel-info">
+							<div class="panel-heading">
+								<h3 class="panel-title">Remarks Available</h3>
+							</div>
+							<div class="panel-body">
+								<div ng-show="!(vm.data.volunteer.remarks.length)">No remarks</div>
+								<p>
+									<span class="label label-warning" ng-repeat="remark in vm.data.volunteer.remarks">
+									{{remark.remark}} remark by {{remark.dssStaff}}  on date {{remark.date}}<br>
+									</span>
+								</p>
+
+							</div>
+					 </div>
+					 <div class="panel panel-info">
+							<div class="panel-heading">
+								<h3 class="panel-title">Activities participated</h3>
+							</div>
+							<div class="panel-body">
+							    <div ng-show="!(vm.data.volunteer.activities.length)">No activities</div>
+								<p>
+									<span class="label label-warning" ng-repeat="activity in vm.data.volunteer.activities">{{activity.site}}</span>
+								</p>
+
+							</div>
+					 </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <p>{{vm.sidebar.content}}</p>
+  		</div>
+  	</div>
+  	<footer-dss></footer-dss>
+  		</div>

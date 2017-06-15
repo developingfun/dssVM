@@ -1,0 +1,39 @@
+<div id="banner" class="page-header">
+	<div class="row">
+		<div class="col-lg-6">
+			<h1>
+            	{{ vm.pageHeader.title }}
+               	<small>{{ vm.pageHeader.info}} </small>
+            </h1>
+        </div>
+     </div>
+ </div>
+     <div class="row">
+     	<div class="col-xs-12 col-sm-8">
+	         <div class="error">{{vm.message}}</div>
+         	 <div class="row list-group">
+             	<div class="col-xs-12 list-group-item" ng-repeat="volunteer in vm.data.volunteers">
+             	    <h4>
+             	       <a href="/volunteer/detail/{{volunteer.phone}}"> {{ volunteer.phone}}</a>
+             	          <small user,staus="volunteer.status"></small>
+             	          <small> {{volunteer.status}}</small>
+             	          <span class="badge pull-right badge-default"> {{volunteer.lastContributed | date:"d MMM yyyy"}}</span>
+             	    </h4>
+             	    <p class="name"> {{volunteer.name}}</p>
+             	    <p class="address"> {{volunteer.address | uppercase}}</p>
+             	    <p>
+             	        <span class="label label-warning" ng-repeat="skill in volunteer.skills">{{skill}} &nbsp;</span>
+             	    </p>
+             	    <p>
+             	       <a class="btn btn-default pull-right" href="/volunteer/delete/{{volunteer._id}}"> Delete</a>
+             	       <a class="btn btn-default pull-right" href="/volunteer/{{volunteer._id}}/addRemark"> Add Remark</a>
+             	       <a class="btn btn-default pull-right" href="/volunteer/addActivity"> Add Activity</a>
+             	       <a class="btn btn-default pull-right" href="/volunteer/addFeedback"> Add Feedback</a>
+             	    </p>
+            	</div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <p>{{vm.sidebar.content}}</p>
+  		</div>
+  	</div>

@@ -1,0 +1,51 @@
+body {
+  padding: 60px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+    /* fix padding under menu after resize */
+    @media screen and (max-width: 767px) {
+        body { padding-top: 60px; }
+    }
+    @media screen and (min-width:768px) and (max-width: 991px) {
+        body { padding-top: 110px; }
+    }
+    @media screen and (min-width: 992px) {
+        body { padding-top: 60px; }
+    }
+a {
+  color: #00B7FF;
+}
+
+.less-margin {
+padding: 0px;
+}
+.panel-body {
+padding: 0px;
+}
+.present {
+	background-color: #67c2ee;
+}
+.future {
+	background-color: #f2ba65;
+}
+.past {
+	background-color: #F1F1F1;
+}
+.attended {
+	background-color: #daf491;
+}
+.not-finished {
+	background-color: #dff0ae;
+}
+.action-required {
+	background-color: #f26565;
+}
+.assigned {
+	background-color: #e5e9f0;
+}
+.skipped {
+	background-color: #C5BEBE;
+}
+.interested {
+	background-color: #86a7df;
+}

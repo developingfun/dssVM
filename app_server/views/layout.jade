@@ -1,0 +1,43 @@
+doctype html
+html(ng-app='volunteerMgmt')
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= title
+    link(rel='stylesheet', href='/bootstrap-3.3.7-dist/css/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/angular/angular.min.js')
+    script(src='/lib/angular-route.min.js')
+    script(src='/app.js')
+    script(src='/home/home.controller.js')
+    script(src='/common/services/volunteerData.service.js')
+    script(src='/common/filters/formatPhoneNo.filter.js')
+    script(src='/common/directives/volunteerShortList.directive.js')
+  body
+    .navbar.navbar-default.navbar-fixed-top
+        .container
+            .navbar-header
+                a.navbar-brand(href='/') Home
+                button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            #navbar-main.navbar-collapse.collapse
+                ul.nav.navbar-nav
+                   li
+                      a(href='/volunteer/') Volunteers
+                   li
+                      a(href='/volunteer/') Events
+                   li
+                      a(href='/site/') ActivityRegister
+                   li
+                      a(href='/event/') Profile
+    .container
+      div(ng-view)
+      
+    footer
+      .row
+        .col-xs-12
+           small &copy; DoorStep School
+  
+    script(src='/javascripts/jquery-3.2.0.js')
+  script(src='/bootstrap-3.3.7-dist/js/bootstrap.min.js')

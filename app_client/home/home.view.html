@@ -1,0 +1,74 @@
+	<navigation _id={{vm.volunteerId}}></navigation>
+	<page-header></page-header>
+
+	<div class="container-fluid">
+		<div class="row">
+
+	     	<div class="row col-xs-12">
+				<uib-accordion close-others="true">
+		         	 <div uib-accordion-group class="row panel-default" heading="{{vm.activityAssignedMessage}}">
+							<div class="col-xs-12 list-group-item" ng-repeat="event in vm.assignedActivities.assignedActivities| orderBy:'date' | subsetArray:vm.currentPageActivitiesCommited:vm.itemsPerPage ">
+								<p>
+									<a  uib-tooltip="Know all event details" ng-click="vm.showEventDetails(event.eventId)">{{event.activity}}</a>
+									<span class="badge pull-right badge-default">@{{event.area}}</span>
+								</p>
+								<p class="name">
+									<span class="">{{event.date | date:"d MMM"}} @{{event.startTime | date:"hh:mm"}}</span>
+									<span class="">Joined @{{event.inTime}}</span>
+									<span class="">Left @{{event.outTime}}</span>
+								</p>
+								<p>
+								   	<a class="btn btn-default pull-right" uib-tooltip="Call coordinator" href="tel:{{event.coOrdinatorPhone}}"><span class="glyphicon glyphicon-phone">{{event.coOrdinator}}</span></a>
+								   	<a class="btn btn-default pull-right" uib-tooltip="I am at site" ng-if="!event.inTime && !vm.isFutureDate(event.date)" ng-click="vm.popupCheckIn(vm.volunteerId,event._id)"><img width="20" height="20" src="/images/checkin.png"  border="1" alt="InTime"></a>
+								   	<a  class="btn btn-default pull-right" uib-tooltip="Volunteering details" ng-if="event.inTime && !vm.isFutureDate(event.date)" ng-click="vm.popupCheckOut(vm.volunteerId,event._id)"><img width="20" height="20" src="/images/pad.jpg"  border="1" alt="OutTime"></a>
+								</p>
+							</div>
+							<ul uib-pagination total-items="vm.totalActivitiesCommited" items-per-page="vm.itemsPerPage" ng-model="vm.currentPageActivitiesCommited"  max-size="3" class="pagination-sm" boundary-links="true" force-ellipses="true"></ul>
+					</div>
+		         	 <div uib-accordion-group class="row panel-default" heading="{{vm.activityInterestedMessage}}">
+		             	<div class="col-xs-12 list-group-item" ng-repeat="event in vm.interestedActivities.interestedActivities | orderBy:'date' | subsetArray:vm.currentPageActivitiesInterested:vm.itemsPerPage ">
+		             	    <p>
+		             	    	<a  ng-click="vm.showEventDetails(event.eventId)" uib-tooltip="Know all event details">{{ event.activity}}</a>
+		             	    	<span class="badge pull-right badge-default">@ {{event.area}}</span>
+		             	    </p>
+		             	    <p class="name">
+		             	    	<span class="">{{event.date | date:"d MMM"}} @{{event.startTime | date:"hh:mm"}}</span>
+		             	    </p>
+							<p>
+		             	       <a class="btn btn-default pull-right" uib-tooltip="Call coordinator" href="tel:{{event.coOrdinatorPhone}}"><span class="glyphicon glyphicon-phone">{{event.coOrdinator}}</span></a>
+		             	       <a class="btn btn-default pull-right" uib-tooltip="I will be volunteering" ng-click="vm.confirmAttendence(vm.volunteerId,event._id)"><img width="20" height="20" src="/images/handshake.png"  border="1" alt="Confirm"></a>
+							   <a ng-if="vm.isFutureDate(event.date)" class="btn btn-default pull-right" uib-tooltip="Sorry can not make" ng-click="vm.revertInterest(vm.volunteerId,event._id)"><img width="20" height="20" src="/images/Volunteer-Hand-Icon.png"  border="1" alt="Sorry"></a>
+		             	    </p>
+		            	</div>
+		            	<ul uib-pagination total-items="vm.totalActivitiesInterested" items-per-page="vm.itemsPerPage" ng-model="vm.currentPageActivitiesInterested"  max-size="3" class="pagination-sm" boundary-links="true" force-ellipses="true"></ul>
+
+	            	</div>
+
+
+					<div uib-accordion-group class="row panel-default" heading="{{vm.eventMessage}}">
+						<div class="col-xs-12 list-group-item " ng-repeat="event in vm.events.events | orderBy:'date' | subsetArray:vm.currentPageEvents:vm.itemsPerPage" >
+							<p>
+								<a class="" ng-click="vm.showEventDetails(event._id)" uib-tooltip="Know all event details">{{event.activity}}</a>
+							    <span class="badge pull-right badge-default">@ {{event.area}}</span>
+							</p>
+							<p class="name">
+								<span class="">{{event.date | date:"d MMM"}} @{{event.startTime | date: "hh:mm" }}</span>
+							</p>
+							<p>
+
+							   <a class="btn btn-default pull-right" uib-tooltip="Call coordinator" href="tel:{{event.coOrdinatorPhone}}"><span class="glyphicon glyphicon-phone">{{event.coOrdinator}}</span></a>
+							   <a class="btn btn-default pull-right" uib-tooltip="Interested in volunteering" ng-click="vm.showInterest(vm.volunteerId,event._id)"><img width="20" height="20" src="/images/12250-200.png"  border="1" alt="Interested"></a>
+							</p>
+						</div>
+						<div class="col-xs-12 list-group-item" ng-if="vm.events.events.length > 0">
+							<ul uib-pagination total-items="vm.totalEvents" items-per-page="vm.itemsPerPage" ng-model="vm.currentPageEvents"  max-size="3" class="pagination-sm" boundary-links="true" force-ellipses="true"></ul>
+						</div>
+
+
+					</div>
+				</uib-accordion>
+            </div>
+	  	</div>
+
+	</div>
+	<footer-dss></footer-dss>

@@ -1,0 +1,23 @@
+	<navigation _id={{vm.volunteerId}}></navigation>
+	<page-header></page-header>
+	<div class="container-fluid">
+	    <div class="row">
+	     	<div class="col-xs-12">
+				<div class="error">{{vm.message}}</div>
+				<div class="row list-group">
+	             	<div class="col-xs-12 list-group-item" ng-repeat="event in vm.data.events | orderBy:'date' | subsetArray:vm.currentPage:vm.itemsPerPage">
+		             	<div ng-class="event.class">
+		             	    <h4>
+		           	       		<a ng-click="vm.showEventDetails(event._id)" > {{ event.activity}}</a>
+	             	       		<span class="badge pull-right badge-default"> {{event.date | date:"d MMM yyyy"}}</span>
+	             	    	</h4>
+             	    		<p class="address"> {{event.area | uppercase}}</p>
+             	    		<p class="address"> {{event.coOrdinator }} <span class="badge pull-right badge-default"> {{event.coOrdinatorPhone }}</span></p>
+             	    	</div>
+            		</div>
+            		<ul uib-pagination total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.currentPage"  max-size="3" class="pagination-sm" boundary-links="true" force-ellipses="true"></ul>
+            	</div>
+		    </div>
+	  	</div>
+  	</div>
+  	<footer-dss></footer-dss>

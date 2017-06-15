@@ -1,0 +1,26 @@
+	<navigation></navigation>
+	<div class="container">
+	<page-header info="vm.pageHeader"></page-header>
+     <div class="row">
+     	<div class="col-xs-12">
+
+			<div class="error">{{vm.message}} <a class="btn btn-default pull-right" ng-click="vm.import()">Import</a></div>
+
+         	 <div class="row list-group">
+             	<div class="col-xs-12 list-group-item" ng-repeat="event in vm.data.events">
+             	<div ng-class="event.class">
+             	    <h4>
+             	       <a ng-click="vm.showEventDetails(event._id)" > {{ event.activity}}</a>
+             	       <span class="badge pull-right badge-default"> {{event.date | date:"d MMM yyyy"}}</span>
+             	    </h4>
+             	    <p class="address"> {{event.area | uppercase}}</p>
+             	    <p class="address"> {{event.coOrdinator }} <span class="badge pull-right badge-default"> {{event.coOrdinatorPhone }}</span></p>
+             	    </div>
+            	</div>
+            </div>
+
+	    </div>
+
+  	</div>
+  	<footer-dss></footer-dss>
+  		</div>

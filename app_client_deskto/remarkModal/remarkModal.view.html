@@ -1,0 +1,40 @@
+
+
+          		<div class="modal-header">
+          			<button type="button" ng-click="vm.modal.cancel()" class="close"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+          			<h4 id="myModalLabel" class="modal-title">Add remark</h4>
+          		</div>
+
+
+          		    <form id="addRemark" class="form-horizontal" role="form" name="addRemark" ng-submit="vm.onSubmit()">
+          		    <div class="modal-body">
+          		    	<div role="alert" ng-show="vm.formError" class="alert alert-danger">{{vm.formError}}</div>
+          			<div class="form-group">
+          					<input  id="id" class="form-control" name="id" value="{{vm.vData.volunteerId}}" />
+          			</div>
+					<div class="form-group">
+          				 <label class="col-xs-10 col-sm-2 control-label" for="date">Date</label>
+          				 <div class="col-xs-12 col-sm-10">
+                      		 <input id="date" class="form-control" name="date" ng-model="vm.formData.date"/>
+                         </div>
+                     </div>
+                     <div class="form-group">
+                     	<label class="col-xs-10 col-sm-2 control-label" for="dssStaff">DSS Staff </label>
+                    	<div class="col-xs-12 col-sm-10">
+				       		 <input id="name" class="form-control" name="dssStaff" ng-model="vm.formData.dssStaff"/>
+                         </div>
+			         </div>
+                     <div class="form-group">
+                      	<label class="col-xs-10 col-sm-2 control-label" for="remarks">Remarks</label>
+                    	<div class="col-xs-12 col-sm-10">
+				             <textarea id="remarks" class="form-control" name="remarks" ng-model="vm.formData.remarks"></textarea>
+                         </div>
+					 </div>
+
+				</div>
+				<div class="modal-footer">
+					<button ng-click="vm.modal.cancel()" type="button" class="btn btn-default">Cancel</button>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+ </form>
+

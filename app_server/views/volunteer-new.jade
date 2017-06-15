@@ -1,0 +1,86 @@
+extends layout
+
+block content
+
+  #banner.page-header
+     .row
+        .col-lg-6
+            h1 Volunteers
+               small &nbsp; volunteers basic information            
+               
+               
+  .row
+     .col-xs-12.col-md-6
+         form.form-horizontal( method="post", role="form")
+             .form-group
+                 label.col-xs-10.col-sm-2.control-label(for="name") Name
+                 .col-xs-12.col-sm-10
+                      input#name.form-control(name="name")
+             .form-group
+                 label.col-xs-10.col-sm-2.control-label(for="address") Address
+                 .col-xs-12.col-sm-10
+                      input#name.form-control(name="address")
+             .form-group
+                 label.col-xs-10.col-sm-2.control-label(for="emailId") EmailId
+                 .col-xs-12.col-sm-10
+                      input#name.form-control(name="emailId")
+             .form-group
+                 label.col-xs-10.col-sm-2.control-label(for="phone") Phone
+                 .col-xs-12.col-sm-10
+                      input#name.form-control(name="phone")
+             .form-group
+                 label.col-xs-10.col-sm-2.control-label(for="institute") Affiliated Institute/Organization
+                 .col-xs-12.col-sm-10
+                      input#name.form-control(name="institute")
+             .form-group
+                 label.col-xs-10.col-sm-2.control-label(for="occupation") Occupational Status
+                 .col-xs-12.col-sm-4
+                      select#occupation.form-control.input-sm(name="occupation")
+                            option "Student"
+                            option "Service"
+                            option "Business"
+                            option "Retired"
+                            option "housewife"
+             .form-group
+                 label.col-xs-10.col-sm-2.control-label(for="skill") Skills
+                 .col-xs-12.col-sm-4
+                      select(multiple)#occupation.form-control.input-sm(name="skill")
+                            option "Painting"
+                            option "Singing"
+                            option "Teaching"
+                            option "Craft"
+                            option "Games"        
+              .form-group
+                      label.col-xs-10.col-sm-2.control-label(for="prefDays") Prefered Days
+                      .col-xs-12.col-sm-4
+                      select#occupation.form-control.input-sm(name="prefDays")
+                             option "Any"
+                             option "Weekday"
+                             option "Weekend"
+              .form-group
+                      label.col-xs-10.col-sm-2.control-label(for="prefArea") Prefered Area
+                      .col-xs-12.col-sm-4
+                      select(multiple)#occupation.form-control.input-sm(name="prefArea")
+                             option "Any"
+                             option "North"
+                             option "South"
+                             option "East"
+                             option "West" 
+              .form-group
+                      label.col-xs-10.col-sm-2.control-label(for="prefActivity") Prefered Activity
+                      .col-xs-12.col-sm-4
+                      select(multiple)#occupation.form-control.input-sm(name="prefActivity")
+                             option "Painting"
+                             option "Singing"
+                             option "Teaching"
+                             option "Craft"
+                             option "Games" 
+             .form-group
+                 label.col-sm-2.control-label(for="other") Additional About me
+                 .col-sm-10
+                      textarea#aboutme.form-control(name="aboutme", rows="5")
+              button.btn.btn-default.pull-left Cancel
+              button.btn.btn-default.pull-right Add        
+      .col-xs-12.col-md-4
+          p.Get connected with volunteers
+  

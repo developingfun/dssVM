@@ -1,0 +1,34 @@
+to add create update add delete view for table
+
+to create table/model
+
+in db.js .. add require for table information
+create table.js 
+var mongoose = require('mongoose');
+
+	var volunteerSchema = new mongoose.Schema({
+	name: {type:String,required:true},
+	address: String,
+	emailId: String,
+	phone: {type:String,required:true},
+	occupation: String,
+	skills: [String],
+	orientationDate: Date,
+	prefArea: [String],
+	prefDays: [String],
+	prefActivity: [String],
+	organization: {type: String,"default": "self"},
+    	feedbacks: [volunteerFeedback],
+    	remarks: [volunteerRemarks],
+    	activities: [volunteerActivity]
+	});
+
+mongoose.model('Volunteer', volunteerSchema);
+
+in app_api/routes/index.js
+requires table controller
+add router.[get/put/post/delete](path,controller.function)
+
+in app_api/controller add table controller
+var Volunteer = mongoose.model('Volunteer');
+add function for list update 

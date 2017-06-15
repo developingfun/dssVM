@@ -1,0 +1,38 @@
+extends layout
+
+block content
+
+  #banner.page-header
+     .row
+        .col-lg-6
+            h1= pageHeader.title
+               small &nbsp; #{pageHeader.info}            
+               a.btn.btn-default.pull-right(href="/volunteer/new") Add
+               
+  .row
+     .col-xs-12.col-sm-8(ng-controller="volunteerListCtrl")
+         .error(ng-if="message != ''") {{message}}
+         .row.list-group
+   
+             .col-xs-12.list-group-item(ng-repeat="volunteer in data.volunteers")
+                 h4
+                    a(href="/volunteer/detail/{{volunteer.phone}}") {{ volunteer.phone}}
+                    small &nbsp;	
+                       small(user,staus="volunteer.status")
+                       small {{volunteer.status}}
+                       span.badge.pull-right.badge-default {{volunteer.lastContributed | date:"d MMM yyyy"}}
+                 p.name {{volunteer.name}}
+                 p.address {{volunteer.address | uppercase}}
+                 p
+                   
+                      span.label.label-warning(ng-repeat="skill in volunteer.skills")      {{skill}} &nbsp;
+                   
+                 p
+                    a.btn.btn-default.pull-right(href="/volunteer/delete/{{volunteer._id}}") Delete
+                    a.btn.btn-default.pull-right(href="/volunteer/{{volunteer._id}}/addRemark") Add Remark
+                    a.btn.btn-default.pull-right(href="/volunteer/addActivity") Add Activity
+                    a.btn.btn-default.pull-right(href="/volunteer/addFeedback") Add Feedback
+                      
+      .col-xs-12.col-sm-4
+          p.Get connected with volunteers
+  

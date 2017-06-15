@@ -1,0 +1,27 @@
+	<navigation></navigation>
+	<div class="container">
+		<page-header info="vm.pageHeader"></page-header>
+		<div class="row">
+	     	<div class="col-xs-12">
+				<div class="error">{{vm.message}} </div>
+	 			<div class="row list-group">
+	             	<div class="col-xs-12 list-group-item" ng-repeat="activity in vm.data.activities.slice(((vm.currentPage-1)*vm.itemsPerPage), ((vm.currentPage)*vm.itemsPerPage))">
+		             	<div ng-class="activity.class">
+		             	    <h4>
+		             	       <a ng-click="vm.showEventDetails(activity._id)" > {{ activity.activity}}</a>
+		             	       <span class="badge pull-right badge-default"> {{activity.date | date:"d MMM yyyy"}}</span>
+		             	    </h4>
+		             	    <p class="address"> {{activity.area }}</p>
+		             	    <p class="address"><span ng-if="activity.inTime"><span> {{activity.inTime }} </span> <span ng-if="activity.outTime">- {{activity.outTime }} <span class="pull-right">{{activity.childrenAffected}}</span></span></span></p>
+	             	    </div>
+	            	</div>
+
+	            </div>
+				<br/>
+				<ul uib-pagination total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.currentPage"  max-size="3" class="pagination-sm" boundary-links="true" force-ellipses="true"></ul>
+            	<br/>
+		    </div>
+
+	  	</div>
+	  	<footer-dss></footer-dss>
+	</div>

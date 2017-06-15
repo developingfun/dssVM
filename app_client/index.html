@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app='volunteerMgmt'>
+	<head>
+    	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    	<title>Connect to Volunteers</title>
+        <link rel='stylesheet' href='/bootstrap-3.3.7-dist/css/bootstrap.css'>
+        <link rel='stylesheet' href='/stylesheets/ui-bootstrap-custom-2.0.0-csp'>
+    	<link rel='stylesheet' href='/stylesheets/style.bak.css'>
+
+
+		<script src='/angular/angular.js'></script>
+    	<script src='/lib/angular-route.min.js'></script>
+   	  	<script src='/javascripts/jquery-3.2.0.js'></script>
+		<script src='/bootstrap-3.3.7-dist/js/bootstrap.min.js'></script>
+  		<script src='/lib/ui-bootstrap-custom-tpls-2.0.0.min.js'></script>
+  		<script src="/lib/moment.min.js"></script>
+
+    	<script src='/app.js'></script>
+
+		<script src='/home/home.controller.js'></script>
+
+		<script src='/about/about.controller.js'></script>
+		<script src='/volunteer/volunteerList.controller.js'></script>
+		<script src='/volunteer/volunteerDetail.controller.js'></script>
+		<script src='/remarkModal/remarkModal.controller.js'></script>
+		<script src='/inTimeModal/inTimeModal.controller.js'></script>
+		<script src='/outTimeModal/outTimeModal.controller.js'></script>
+		<script src='/event/eventList.controller.js'></script>
+		<script src='/register/registerVolunteer.controller.js'></script>
+		<script src='/event/eventDetail.controller.js'></script>
+		<script src='/activityLog/activityLog.controller.js'></script>
+		<script src='/import/import.controller.js'></script>
+
+		<script src='/google_access/googleAuth.js'></script>
+
+		<script src='/common/services/volunteerData.service.js'></script>
+		<script src='/common/services/eventData.service.js'></script>
+		<script src='/common/services/notificationData.service.js'></script>
+
+		<script src='/common/filters/formatPhoneNo.filter.js'></script>
+		<script src='/common/filters/subsetArray.filter.js'></script>
+
+		<script src='/common/directives/volunteerShortList.directive.js'></script>
+		<script src='/common/directives/footerDss.directive.js'></script>
+		<script src='/common/directives/navigation.directive.js'></script>
+		<script src='/common/directives/pageHeader.directive.js'></script>
+
+
+
+    </head>
+	<body ng-view>
+	</body>
+</html>
